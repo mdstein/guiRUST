@@ -11,6 +11,7 @@
 #include <fcntl.h> 
 #include <cstdio>
 #include <d3d9.h>
+#include <dwmapi.h>
 
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_dx9.h"
@@ -259,6 +260,7 @@ float tofovandsens(float sens, int fov, float val)
 
 }
 
+
 // Main code
 int main(int, char**)
 {
@@ -266,7 +268,7 @@ int main(int, char**)
 	//ImGui_ImplWin32_EnableDpiAwareness();
 	WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, L"testing", NULL };
 	::RegisterClassExW(&wc);
-	HWND hwnd = ::CreateWindowW(wc.lpszClassName, L"vera test", WS_OVERLAPPEDWINDOW, 100, 100, 1280, 800, NULL, NULL, wc.hInstance, NULL);
+	HWND hwnd = ::CreateWindowExW(WS_EX_TRANSPARENT, L"testing", L"a", WS_POPUP, 0, 0, 500, 500, NULL, NULL, wc.hInstance, NULL);
 
 	// Initialize Direct3D
 	if (!CreateDeviceD3D(hwnd))
@@ -276,9 +278,15 @@ int main(int, char**)
 		return 1;
 	}
 
+	//begin transparency
+	MARGINS margins = { -1 };
+	DwmExtendFrameIntoClientArea(hwnd, &margins);
+
+
 	// Show the window
 	::ShowWindow(hwnd, SW_SHOWDEFAULT);
 	::UpdateWindow(hwnd);
+	SetLayeredWindowAttributes(hwnd, RGB(0, 0, 0), 255, LWA_ALPHA);
 
 	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
@@ -286,9 +294,10 @@ int main(int, char**)
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
 
-	// Setup Dear ImGui style
-	//ImGui::StyleColorsDark();
-	ImGui::StyleColorsClassic();
+	// imgui theme
+	//ImGui::StyleColorsDark();    //<--- dark mode
+	//ImGui::StyleColorsClassic(); //<--- og
+	ImGui::StyleColorsLight();  //<--- light mode
 
 	// Setup Platform/Renderer backends
 	ImGui_ImplWin32_Init(hwnd);
@@ -325,6 +334,57 @@ int main(int, char**)
 		ImGui_ImplWin32_NewFrame();
 		ImGui::NewFrame();
 
+		//style
+		ImGuiStyle* style = &ImGui::GetStyle();
+
+		style->WindowPadding = ImVec2(15, 15);
+		style->WindowRounding = 5.0f;
+		style->FramePadding = ImVec2(5, 5);
+		style->FrameRounding = 4.0f;
+		style->ItemSpacing = ImVec2(12, 8);
+		style->ItemInnerSpacing = ImVec2(8, 6);
+		style->IndentSpacing = 25.0f;
+		style->ScrollbarSize = 15.0f;
+		style->ScrollbarRounding = 9.0f;
+		style->GrabMinSize = 5.0f;
+		style->GrabRounding = 3.0f;
+
+		style->Colors[ImGuiCol_Text] = ImVec4(0.80f, 0.80f, 0.83f, 1.00f);
+		style->Colors[ImGuiCol_TextDisabled] = ImVec4(0.24f, 0.23f, 0.29f, 1.00f);
+		style->Colors[ImGuiCol_WindowBg] = ImVec4(0.06f, 0.05f, 0.07f, 1.00f);
+		style->Colors[ImGuiCol_PopupBg] = ImVec4(0.07f, 0.07f, 0.09f, 1.00f);
+		style->Colors[ImGuiCol_Border] = ImVec4(0.80f, 0.80f, 0.83f, 0.88f);
+		style->Colors[ImGuiCol_BorderShadow] = ImVec4(0.92f, 0.91f, 0.88f, 0.00f);
+		style->Colors[ImGuiCol_FrameBg] = ImVec4(0.10f, 0.09f, 0.12f, 1.00f);
+		style->Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.24f, 0.23f, 0.29f, 1.00f);
+		style->Colors[ImGuiCol_FrameBgActive] = ImVec4(0.56f, 0.56f, 0.58f, 1.00f);
+		style->Colors[ImGuiCol_TitleBg] = ImVec4(0.10f, 0.09f, 0.12f, 1.00f);
+		style->Colors[ImGuiCol_TitleBgCollapsed] = ImVec4(1.00f, 0.98f, 0.95f, 0.75f);
+		style->Colors[ImGuiCol_TitleBgActive] = ImVec4(0.07f, 0.07f, 0.09f, 1.00f);
+		style->Colors[ImGuiCol_MenuBarBg] = ImVec4(0.10f, 0.09f, 0.12f, 1.00f);
+		style->Colors[ImGuiCol_ScrollbarBg] = ImVec4(0.10f, 0.09f, 0.12f, 1.00f);
+		style->Colors[ImGuiCol_ScrollbarGrab] = ImVec4(0.80f, 0.80f, 0.83f, 0.31f);
+		style->Colors[ImGuiCol_ScrollbarGrabHovered] = ImVec4(0.56f, 0.56f, 0.58f, 1.00f);
+		style->Colors[ImGuiCol_ScrollbarGrabActive] = ImVec4(0.06f, 0.05f, 0.07f, 1.00f);
+		style->Colors[ImGuiCol_CheckMark] = ImVec4(0.80f, 0.80f, 0.83f, 0.31f);
+		style->Colors[ImGuiCol_SliderGrab] = ImVec4(0.80f, 0.80f, 0.83f, 0.31f);
+		style->Colors[ImGuiCol_SliderGrabActive] = ImVec4(0.06f, 0.05f, 0.07f, 1.00f);
+		style->Colors[ImGuiCol_Button] = ImVec4(0.10f, 0.09f, 0.12f, 1.00f);
+		style->Colors[ImGuiCol_ButtonHovered] = ImVec4(0.24f, 0.23f, 0.29f, 1.00f);
+		style->Colors[ImGuiCol_ButtonActive] = ImVec4(0.56f, 0.56f, 0.58f, 1.00f);
+		style->Colors[ImGuiCol_Header] = ImVec4(0.10f, 0.09f, 0.12f, 1.00f);
+		style->Colors[ImGuiCol_HeaderHovered] = ImVec4(0.56f, 0.56f, 0.58f, 1.00f);
+		style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.06f, 0.05f, 0.07f, 1.00f);
+		style->Colors[ImGuiCol_ResizeGrip] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
+		style->Colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.56f, 0.56f, 0.58f, 1.00f);
+		style->Colors[ImGuiCol_ResizeGripActive] = ImVec4(0.06f, 0.05f, 0.07f, 1.00f);
+		style->Colors[ImGuiCol_PlotLines] = ImVec4(0.40f, 0.39f, 0.38f, 0.63f);
+		style->Colors[ImGuiCol_PlotLinesHovered] = ImVec4(0.25f, 1.00f, 0.00f, 1.00f);
+		style->Colors[ImGuiCol_PlotHistogram] = ImVec4(0.40f, 0.39f, 0.38f, 0.63f);
+		style->Colors[ImGuiCol_PlotHistogramHovered] = ImVec4(0.25f, 1.00f, 0.00f, 1.00f);
+		style->Colors[ImGuiCol_TextSelectedBg] = ImVec4(0.25f, 1.00f, 0.00f, 0.43f);
+
+		//font 
 
 
 		// 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
@@ -332,12 +392,12 @@ int main(int, char**)
 			static float f = 0.0f;
 			static int counter = 0;
 
-			ImGui::Begin("vera nignog");       
+			ImGui::Begin("wip");       
 
 
 			
 			ImGui::Text("Enable or disable script.");               // Display some text (you can use a format strings too)
-			if (ImGui::Checkbox("Toggle on/off", &enabled))
+			if (ImGui::RadioButton("Toggle on/off", &enabled))
 			{
 				if (enabled == false)
 				{
@@ -354,42 +414,87 @@ int main(int, char**)
 					Beep(C, 80);
 				}
 			}
-			ImGui::Text("scripts");
-			if (ImGui::Checkbox("ak47", &ak47))
+
+			ImGui::Text("weapon");
+			const char* wep[] = { "none", "ak47", "lr300" };
+			static int current_wep = 0;
+
+			if (ImGui::BeginCombo("##weap", wep[current_wep])) // The second parameter is the label previewed before opening the combo.
 			{
-				if (ak47 != true)
+				for (int n = 0; n < IM_ARRAYSIZE(wep); n++)
 				{
-					ak47 == true;
-					Beep(E, 80);
+					bool is_selected = (current_wep == n); // You can store your selection however you want, outside or inside your objects
+					if (ImGui::Selectable(wep[n], is_selected))
+						current_wep = n;
+						if (is_selected)
+							ImGui::SetItemDefaultFocus();   // You may set the initial focus when opening the combo (scrolling + for keyboard navigation support)
 				}
-				else
-				{
-					ak47 == false;
-					Beep(C, 80);
-				}
+			ImGui::EndCombo();
 			}
 
-			ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-			ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
+			ImGui::Text("scope");
+			const char* scope[] = { "none", "simple", "holo", "8x", "16x" };
+			static int current_scope = 0;
 
-			if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-				counter++;
-			ImGui::SameLine();
-			ImGui::Text("counter = %d", counter);
+			if (ImGui::BeginCombo("##scope", scope[current_scope]))
+			{
+				for (int n = 0; n < IM_ARRAYSIZE(scope); n++)
+				{
+					bool is_selected = (current_scope == n);
+					if (ImGui::Selectable(scope[n], is_selected))
+						current_scope = n;
+					if (is_selected)
+						ImGui::SetItemDefaultFocus();
+				}
+				ImGui::EndCombo();
+			}
 
-			ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+			ImGui::Text("barrel");
+			const char* barrel[] = { "none", "muzzle break", "suppressor", "WIP" };
+			static int current_barrel = 0;
+
+			if (ImGui::BeginCombo("##barrel", barrel[current_barrel])) 
+			{
+				for (int n = 0; n < IM_ARRAYSIZE(barrel); n++)
+				{
+					bool is_selected = (current_barrel == n); 
+					if (ImGui::Selectable(barrel[n], is_selected))
+						current_barrel = n;
+					if (is_selected)
+						ImGui::SetItemDefaultFocus();   
+				}
+				ImGui::EndCombo();
+			}
+
+
+			//sens selector
+			ImGui::Text("sens");
+			static float v = .5;
+			ImGui::SliderFloat("  ", &v, 0.0, 10.0, "%.1f", 1);
+
+			//randomization
+			ImGui::Text("randomization");
+			static int r = 70;
+			ImGui::SliderInt(" ", &r, 0, 100, "%i%%", 1);
+
+			if (ImGui::Button("close script"))
+			{
+				return 0;
+			}
+
+			ImGui::Text("Framerate: (%.01f fps)", ImGui::GetIO().Framerate);
 			ImGui::End();
 		}
 
 		// 3. Show another simple window.
-		if (show_another_window)
-		{
-			ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-			ImGui::Text("Hello from another window!");
-			if (ImGui::Button("Close Me"))
-				show_another_window = false;
-			ImGui::End();
-		}
+		//if (show_another_window)
+		//{
+		//	ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+		//	ImGui::Text("Hello from another window!");
+		//	if (ImGui::Button("Close Me"))
+		//		show_another_window = true;
+		//	ImGui::End();
+		//}
 
 		// Rendering
 		ImGui::EndFrame();

@@ -1,0 +1,31 @@
+﻿  Source.cpp
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Weapons.h(13,28): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(36,3): warning C4129: '/': unrecognized character escape sequence
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(161,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(201,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(202,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(214,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(216,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(222,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(246,56): warning C4305: 'argument': truncation from 'int' to 'BYTE'
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(246,41): warning C4309: 'argument': truncation of constant value
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(359,149): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(359,242): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(367,151): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(367,250): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(374,136): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(374,230): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(381,133): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(381,226): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(388,136): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(388,230): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(395,139): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(395,234): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(399,139): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\NoRecoil-main\norecoil\Source.cpp(399,235): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating code
+  1 of 134 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  norecoil.vcxproj -> C:\Users\Max\OneDrive\Desktop\NoRecoil-main\x64\Release\norecoil.exe

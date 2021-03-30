@@ -1,0 +1,68 @@
+﻿  Source.cpp
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Weapons.h(15,28): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(47,1): warning C4005: 'FG_WHITE': macro redefinition
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(45): message : see previous definition of 'FG_WHITE'
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(187,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(188,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(216,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(219,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(222,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(225,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(228,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(235,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(238,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(241,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(244,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(249,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(341,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(346,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(354,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(359,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(367,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(372,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(380,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(385,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(393,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(398,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(406,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(411,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(419,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(424,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(431,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(432,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(433,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(437,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(438,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(439,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(448,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(453,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(459,23): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(466,23): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(468,99): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(493,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(498,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(504,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(509,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(516,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(521,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(529,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(534,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(540,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(545,12): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(628,151): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(628,245): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(635,153): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(635,253): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(642,138): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(642,233): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(649,135): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(649,229): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(656,138): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(656,233): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(663,141): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(663,237): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(667,140): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(667,236): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\norecoil\Source.cpp(245): warning C4715: 'getBarrel': not all control paths return a value
+Source.obj : error LNK2019: unresolved external symbol Direct3DCreate9 referenced in function "bool __cdecl CreateDeviceD3D(struct HWND__ *)" (?CreateDeviceD3D@@YA_NPEAUHWND__@@@Z)
+C:\Users\Max\OneDrive\Desktop\Vera scripts\veraware-imgui\x64\Debug\norecoil.exe : fatal error LNK1120: 1 unresolved externals

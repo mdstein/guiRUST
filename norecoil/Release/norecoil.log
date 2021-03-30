@@ -1,0 +1,77 @@
+﻿  Source.cpp
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Weapons.h(15,28): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(41,1): warning C4005: 'FG_WHITE': macro redefinition
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(39): message : see previous definition of 'FG_WHITE'
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(233,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(234,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(262,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(265,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(268,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(272,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(275,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(281,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(284,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(287,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(290,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(295,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(344,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(350,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(359,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(365,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(374,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(380,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(389,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(395,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(404,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(410,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(419,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(425,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(434,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(440,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(448,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(449,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(450,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(455,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(456,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(457,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(467,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(473,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(479,21): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(487,21): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(489,97): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(518,11): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(524,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(531,11): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(537,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(545,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(551,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(560,11): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(566,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(573,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(579,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(659,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(662,149): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(662,242): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(667,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(669,151): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(669,250): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(674,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(676,136): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(676,230): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(681,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(683,133): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(683,226): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(688,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(690,136): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(690,230): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(695,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(697,139): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(697,234): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(701,139): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\veraware-main\norecoil\Source.cpp(701,235): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating code
+  2 of 140 functions ( 1.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  norecoil.vcxproj -> C:\Users\Max\OneDrive\Desktop\veraware-main\Release\norecoil.exe
