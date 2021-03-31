@@ -11,7 +11,8 @@
 #include <fcntl.h> 
 #include <cstdio>
 #include <d3d9.h>
-#include <dwmapi.h>
+#pragma comment(lib, "dwmapi.lib")
+#include "dwmapi.h"
 
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_dx9.h"
@@ -48,15 +49,7 @@
 #define FG_WHITE "\033[1;37m"
 #define FG_LTBL "\033[1;34m"
 
-
-//int currentwep = 7;
-bool ak47 = false;
-bool lr300 = false;
-bool mp5 = false;
-bool thompson = false;
-bool sar = false;
-bool custom = false;
-bool m249 = false;
+int CurrentWeaponSelection = 0;
 int scope = 0;
 int barrel = 0;
 int randomizer = 70;
@@ -146,7 +139,7 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	return ::DefWindowProc(hWnd, msg, wParam, lParam);
 }
 
-//styles randomize fxn
+//  styles randomize fxn
 
 float Randomize(float val, int perc)
 {
@@ -160,13 +153,13 @@ float Randomize(float val, int perc)
 	if (range > 0.5) range = 1;
 
 	int result = 1 + (rand() % (int)range);
-	//beast = val + result;
 
 	if ((1 + (rand() % 1) > 0)) return val + result;
 	else return val + (result * -1);
 
 }
 
+// control time
 void QuerySleep(int ms) // Sleep / Delay
 {
 	LONGLONG timerResolution;
@@ -186,7 +179,7 @@ void QuerySleep(int ms) // Sleep / Delay
 	}
 }
 
-
+// smoothing
 void Smoothing(double delay, double control_time, float x, float y) 
 {
 	int x_ = 1, y_ = 1, t_ = 0;
@@ -217,6 +210,7 @@ void Smoothing(double delay, double control_time, float x, float y)
 //	QuerySleep((int)delay - (int)control_time);
 //}
 
+//  scope math
 float getScope(float val)
 {
 	//none
@@ -237,6 +231,7 @@ float getScope(float val)
 	return val;
 }
 
+//  barrel math
 float getBarrel(float barval)
 {
 	if (barrel == 0)
@@ -260,15 +255,55 @@ float tofovandsens(float sens, int fov, float val)
 
 }
 
+const char* WeaponSelectionOptions[3] = { "none", "ak47", "lr300" };
+
+
+
+void SetWeaponRecoil(int WeaponSelection)
+{
+	int count = 0;
+
+	if (enabled == true)
+	{
+		if (GetAsyncKeyState(VK_LBUTTON) && GetAsyncKeyState(VK_RBUTTON))
+		{
+			switch (CurrentWeaponSelection)
+			{
+			case 1:
+				if (count < Weapons::ak::pattern.size())
+				{
+					Smoothing(Weapons::ak::delay, Weapons::ak::controltime.at(count), Randomize(tofovandsens(playersens, playerfov, Weapons::ak::pattern.at(count).x), randomizer), Randomize(tofovandsens(playersens, playerfov, Weapons::ak::pattern.at(count).y), randomizer));
+					count++;
+				}
+				break;
+			case 2:
+				if (count < Weapons::lr::pattern.size())
+				{
+					Smoothing(Weapons::lr::delay, Weapons::lr::delay, Randomize(tofovandsens(playersens, playerfov, Weapons::lr::pattern.at(count).x), randomizer), Randomize(tofovandsens(playersens, playerfov, Weapons::lr::pattern.at(count).y), randomizer));
+					count++;
+				}
+				break;
+			}
+		}
+		else
+			count = 0;
+	}
+}
 
 // Main code
 int main(int, char**)
 {
+
 	// Create application window
-	//ImGui_ImplWin32_EnableDpiAwareness();
+	ImGui_ImplWin32_EnableDpiAwareness();
 	WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, L"testing", NULL };
-	::RegisterClassExW(&wc);
-	HWND hwnd = ::CreateWindowExW(WS_EX_TRANSPARENT, L"testing", L"a", WS_POPUP, 0, 0, 500, 500, NULL, NULL, wc.hInstance, NULL);
+	::RegisterClassEx(&wc);
+	HWND hwnd = ::CreateWindowEx(WS_EX_TRANSPARENT, L"testing", L"a", WS_POPUP, 0, 0, 500, 500, NULL, NULL, wc.hInstance, NULL);
+	//SetLayeredWindowAttributes(hwnd, RGB(255, 0, 0), RGB(255, 255, 255), LWA_COLORKEY);
+	//MARGINS Margin = { -1, -1, -1, -1 };
+	//DwmExtendFrameIntoClientArea(hwnd, &Margin);
+
+
 
 	// Initialize Direct3D
 	if (!CreateDeviceD3D(hwnd))
@@ -279,14 +314,12 @@ int main(int, char**)
 	}
 
 	//begin transparency
-	MARGINS margins = { -1 };
-	DwmExtendFrameIntoClientArea(hwnd, &margins);
 
 
-	// Show the window
-	::ShowWindow(hwnd, SW_SHOWDEFAULT);
-	::UpdateWindow(hwnd);
-	SetLayeredWindowAttributes(hwnd, RGB(0, 0, 0), 255, LWA_ALPHA);
+	//// Show the window
+	ShowWindow(hwnd, SW_SHOWDEFAULT);
+	UpdateWindow(hwnd);
+
 
 	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
@@ -304,7 +337,7 @@ int main(int, char**)
 	ImGui_ImplDX9_Init(g_pd3dDevice);
 
 	// Our state
-	bool show_demo_window = true;
+	bool show_demo_window = false;
 	bool show_another_window = false;
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
@@ -353,7 +386,7 @@ int main(int, char**)
 		style->Colors[ImGuiCol_TextDisabled] = ImVec4(0.24f, 0.23f, 0.29f, 1.00f);
 		style->Colors[ImGuiCol_WindowBg] = ImVec4(0.06f, 0.05f, 0.07f, 1.00f);
 		style->Colors[ImGuiCol_PopupBg] = ImVec4(0.07f, 0.07f, 0.09f, 1.00f);
-		style->Colors[ImGuiCol_Border] = ImVec4(0.80f, 0.80f, 0.83f, 0.88f);
+		style->Colors[ImGuiCol_Border] = ImVec4(0.80f, 0.80f, 0.83f, 0.30f);
 		style->Colors[ImGuiCol_BorderShadow] = ImVec4(0.92f, 0.91f, 0.88f, 0.00f);
 		style->Colors[ImGuiCol_FrameBg] = ImVec4(0.10f, 0.09f, 0.12f, 1.00f);
 		style->Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.24f, 0.23f, 0.29f, 1.00f);
@@ -392,45 +425,49 @@ int main(int, char**)
 			static float f = 0.0f;
 			static int counter = 0;
 
-			ImGui::Begin("wip");       
+			ImGui::Begin("  wip", 0, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_AlwaysAutoResize);
 
-
-			
+		
 			ImGui::Text("Enable or disable script.");               // Display some text (you can use a format strings too)
-			if (ImGui::RadioButton("Toggle on/off", &enabled))
+			if (ImGui::Checkbox("Toggle on/off", &enabled))
 			{
 				if (enabled == false)
 				{
 					enabled == true;
 					Beep(C, 80);
-					Beep(E2, 80);
-					Beep(G, 80);
 				}
 				else
 				{
-
 					Beep(G, 80);
-					Beep(E2, 80);
-					Beep(C, 80);
+
 				}
 			}
 
+
+			//this gets put in your while loop, the above does not
 			ImGui::Text("weapon");
-			const char* wep[] = { "none", "ak47", "lr300" };
-			static int current_wep = 0;
+			ImGui::Combo("   ", &CurrentWeaponSelection, WeaponSelectionOptions, 3);
 
-			if (ImGui::BeginCombo("##weap", wep[current_wep])) // The second parameter is the label previewed before opening the combo.
-			{
-				for (int n = 0; n < IM_ARRAYSIZE(wep); n++)
-				{
-					bool is_selected = (current_wep == n); // You can store your selection however you want, outside or inside your objects
-					if (ImGui::Selectable(wep[n], is_selected))
-						current_wep = n;
-						if (is_selected)
-							ImGui::SetItemDefaultFocus();   // You may set the initial focus when opening the combo (scrolling + for keyboard navigation support)
-				}
-			ImGui::EndCombo();
-			}
+			//call your function
+			SetWeaponRecoil(CurrentWeaponSelection);
+
+			//first attempt at weapon selector
+			//ImGui::Text("weapon");
+			//const char* wep[] = { "none", "ak47", "lr300" };
+			//static int current_wep = 0;
+
+			//if (ImGui::BeginCombo("##wep", wep[current_wep])) // The second parameter is the label previewed before opening the combo.
+			//{
+			//	for (int n = 0; n < IM_ARRAYSIZE(wep); n++)
+			//	{
+			//		bool is_selected = (current_wep == n); // You can store your selection however you want, outside or inside your objects
+			//		if (ImGui::Selectable(wep[n], is_selected))
+			//			current_wep = n;
+			//			if (is_selected)
+			//				ImGui::SetItemDefaultFocus();   // You may set the initial focus when opening the combo (scrolling + for keyboard navigation support)
+			//	}
+			//ImGui::EndCombo();
+			//}
 
 			ImGui::Text("scope");
 			const char* scope[] = { "none", "simple", "holo", "8x", "16x" };
@@ -469,20 +506,24 @@ int main(int, char**)
 
 			//sens selector
 			ImGui::Text("sens");
-			static float v = .5;
-			ImGui::SliderFloat("  ", &v, 0.0, 10.0, "%.1f", 1);
+			ImGui::SliderFloat("     ", &playersens, 0.0, 10.0, "%.1f", 1);
 
 			//randomization
 			ImGui::Text("randomization");
-			static int r = 70;
-			ImGui::SliderInt(" ", &r, 0, 100, "%i%%", 1);
+			ImGui::SliderInt(" ", &randomizer, 0, 100, "%i%%", 1);
 
 			if (ImGui::Button("close script"))
 			{
+				//mario
+				Beep(G, 100);
+				Beep(E2, 100);
+				Beep(C, 100);
+
 				return 0;
 			}
 
-			ImGui::Text("Framerate: (%.01f fps)", ImGui::GetIO().Framerate);
+			//ImGui::Text("%.1f fps", ImGui::GetIO().Framerate);
+			ImGui::Text("              v1.0");
 			ImGui::End();
 		}
 
@@ -501,7 +542,7 @@ int main(int, char**)
 		g_pd3dDevice->SetRenderState(D3DRS_ZENABLE, FALSE);
 		g_pd3dDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, FALSE);
 		g_pd3dDevice->SetRenderState(D3DRS_SCISSORTESTENABLE, FALSE);
-		D3DCOLOR clear_col_dx = D3DCOLOR_RGBA((int)(clear_color.x * clear_color.w * 0.0f), (int)(clear_color.y * clear_color.w * 0.0f), (int)(clear_color.z * clear_color.w * 0.0f), (int)(clear_color.w * 0.0f));
+		D3DCOLOR clear_col_dx = D3DCOLOR_RGBA((int)(clear_color.x * clear_color.w * 0.0f), (int)(clear_color.y * clear_color.w * 1.0f), (int)(clear_color.z * clear_color.w * 0.0f), (int)(clear_color.w * 1.0f));
 		g_pd3dDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, clear_col_dx, 0.0f, 0);
 		if (g_pd3dDevice->BeginScene() >= 0)
 		{
@@ -527,151 +568,3 @@ int main(int, char**)
 	return 0;
 }
 
-
-int weapons()
-{
-	int count = 0;
-
-	while (true)
-	{
-		//if (GetKeyState(VK_F2) & 0x8000)
-		{
-			if (ak47 != true)
-			{
-				ak47 = true;
-			}
-		}
-		//if (GetKeyState(VK_F3) & 0x8000)
-		//{
-		//	if (currentwep != 1)
-		//	{
-		//		currentwep = 1;
-		//	}
-		//}
-		//if (GetKeyState(VK_F4) & 0x8000)
-		//{
-		//	if (currentwep != 2)
-		//	{
-		//		currentwep = 2;
-		//	}
-		//}
-		//if (GetKeyState(VK_F5) & 0x8000)
-		//{
-		//	if (currentwep != 3)
-		//	{
-		//		currentwep = 3;
-		//	}
-		//}
-		//if (GetKeyState(VK_F6) & 0x8000)
-		//{
-		//	if (currentwep != 4)
-		//	{
-		//		currentwep = 4;
-
-		//	}
-		//}
-		//if (GetKeyState(VK_F7) & 0x8000)
-		//{
-		//	if (currentwep != 5)
-		//	{
-		//		currentwep = 5;
-		//	}
-		//}
-		//if (GetKeyState(VK_F8) & 0x8000)
-		//{
-		//	if (currentwep != 6)
-		//	{
-		//		currentwep = 6;
-		//	}
-		//}
-		//if (GetAsyncKeyState(VK_INSERT) == -32767)
-		//{
-		//	enabled = !enabled;
-		//}
-		//if (GetAsyncKeyState(VK_LEFT) == -32767)
-		//{
-		//	scope = 0;
-		//}
-		//if (GetAsyncKeyState(VK_UP) == -32767)
-		//{
-		//	scope = 1;
-		//}
-		//if (GetAsyncKeyState(VK_DOWN) == -32767)
-		//{
-		//	barrel = 1;
-		//}
-		//if (GetAsyncKeyState(VK_RIGHT) == -32767)
-		//{
-		//	barrel = 0;
-		//}
-		//if (GetAsyncKeyState(VK_PRIOR) == -32767)
-		//{
-		//	scope = 2;
-		//}
-		if (enabled == true)
-		{
-			if (GetAsyncKeyState(VK_LBUTTON) && GetAsyncKeyState(VK_RBUTTON))
-			{
-
-				switch (ak47)
-				{
-					if (count < Weapons::ak::pattern.size())
-					{
-						Smoothing(Weapons::ak::delay, Weapons::ak::controltime.at(count), Randomize(tofovandsens(playersens, playerfov, Weapons::ak::pattern.at(count).x), randomizer), Randomize(tofovandsens(playersens, playerfov, Weapons::ak::pattern.at(count).y), randomizer));
-						count++;
-					}
-					break;
-				}
-			}
-		}
-	}
-}
-				//case 1:
-				//	if (count < Weapons::thompson::pattern.size())
-				//	{
-				//		Smoothing(Weapons::thompson::delay, Weapons::thompson::delay, Randomize(tofovandsens(playersens, playerfov, Weapons::thompson::pattern.at(count).x), randomizer), Randomize(tofovandsens(playersens, playerfov, Weapons::thompson::pattern.at(count).y), randomizer));
-				//		count++;
-				//	}
-				//	break;
-				//case 2:
-				//	if (count < Weapons::smg::pattern.size())
-				//	{
-				//		Smoothing(Weapons::smg::delay, Weapons::smg::delay, Randomize(tofovandsens(playersens, playerfov, Weapons::smg::pattern.at(count).x), randomizer), Randomize(tofovandsens(playersens, playerfov, Weapons::smg::pattern.at(count).y), randomizer));
-				//		count++;
-				//	}
-				//	break;
-				//case 3:
-				//	if (count < Weapons::lr::pattern.size())
-				//	{
-				//		Smoothing(Weapons::lr::delay, Weapons::lr::delay, Randomize(tofovandsens(playersens, playerfov, Weapons::lr::pattern.at(count).x), randomizer), Randomize(tofovandsens(playersens, playerfov, Weapons::lr::pattern.at(count).y), randomizer));
-				//		count++;
-				//	}
-				//	break;
-				//case 4:
-				//	if (count < Weapons::mp5::pattern.size())
-				//	{
-				//		Smoothing(Weapons::mp5::delay, Weapons::mp5::delay, Randomize(tofovandsens(playersens, playerfov, Weapons::mp5::pattern.at(count).x), randomizer), Randomize(tofovandsens(playersens, playerfov, Weapons::mp5::pattern.at(count).y), randomizer));
-				//		count++;
-				//	}
-				//	break;
-				//case 5:
-				//	if (count < Weapons::semi::pattern.size())
-				//	{
-				//		Smoothing(Weapons::semi::delay, Weapons::semi::delay, Randomize(tofovandsens(playersens, playerfov, Weapons::semi::pattern.at(count).x), randomizer), Randomize(tofovandsens(playersens, playerfov, Weapons::semi::pattern.at(count).y), randomizer));
-				//	}
-				//	break;
-				//case 6:
-				//	Smoothing(Weapons::m249::delay, Weapons::m249::delay, Randomize(tofovandsens(playersens, playerfov, Weapons::m249::pattern.at(count).x), randomizer), Randomize(tofovandsens(playersens, playerfov, Weapons::m249::pattern.at(count).y), randomizer));
-				//	break;
-				//default:
-				//	break;
-				//}
-
-		//	}
-		//	else
-		//		count = 0;
-		//}
-
-//	}
-//
-//}
