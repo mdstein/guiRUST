@@ -50,6 +50,7 @@
 #define FG_LTBL "\033[1;34m"
 
 int CurrentWeaponSelection = 0;
+int count = 0;
 int scope = 0;
 int barrel = 0;
 int randomizer = 70;
@@ -79,6 +80,7 @@ bool CreateDeviceD3D(HWND hWnd)
 	if ((g_pD3D = Direct3DCreate9(D3D_SDK_VERSION)) == NULL)
 		return false;
 
+
 	// Create the D3DDevice
 	ZeroMemory(&g_d3dpp, sizeof(g_d3dpp));
 	g_d3dpp.Windowed = TRUE;
@@ -86,7 +88,12 @@ bool CreateDeviceD3D(HWND hWnd)
 	g_d3dpp.BackBufferFormat = D3DFMT_UNKNOWN; // Need to use an explicit format with alpha if needing per-pixel alpha composition.
 	g_d3dpp.EnableAutoDepthStencil = TRUE;
 	g_d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
-	g_d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_ONE;           // Present with vsync
+	g_d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_ONE;   
+	g_d3dpp.BackBufferFormat = D3DFMT_A8R8G8B8;
+	g_d3dpp.hDeviceWindow = hWnd;
+	g_d3dpp.MultiSampleQuality = DEFAULT_QUALITY;
+	g_d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
+	g_d3dpp.Windowed = true;  // Present with vsync
 	//g_d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;   // Present without vsync, maximum unthrottled framerate
 	if (g_pD3D->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_HARDWARE_VERTEXPROCESSING, &g_d3dpp, &g_pd3dDevice) < 0)
 		return false;
@@ -232,19 +239,20 @@ float getScope(float val)
 }
 
 //  barrel math
-float getBarrel(float barval)
+float getBarrel(float val)
 {
 	if (barrel == 0)
-		return barval * 1.0;
+		return val * 1.0;
 	//suppressor
 	if (barrel == 1)
-		return barval * 0.8;
+		return val *0.8;
 	//boost **(WIP)**
 	if (barrel == 2)
-		return barval * 1.0;
+		return val * 1.0;
 	//break
 	if (barrel == 3)
-		return barval * 0.5;
+		return val * 0.5;
+	return val;
 }
 
 float tofovandsens(float sens, int fov, float val)
@@ -256,12 +264,13 @@ float tofovandsens(float sens, int fov, float val)
 }
 
 const char* WeaponSelectionOptions[3] = { "none", "ak47", "lr300" };
+const char* ScopeSelectionOptions[5] = { "none", "holo", "8x", "16x", "simple" };
+const char* BarrelSelectionOptions[4] = { "none", "muzzle break", "suppressor", "WIP" };
 
 
 
 void SetWeaponRecoil(int WeaponSelection)
 {
-	int count = 0;
 
 	if (enabled == true)
 	{
@@ -298,10 +307,10 @@ int main(int, char**)
 	ImGui_ImplWin32_EnableDpiAwareness();
 	WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, L"testing", NULL };
 	::RegisterClassEx(&wc);
-	HWND hwnd = ::CreateWindowEx(WS_EX_TRANSPARENT, L"testing", L"a", WS_POPUP, 0, 0, 500, 500, NULL, NULL, wc.hInstance, NULL);
-	//SetLayeredWindowAttributes(hwnd, RGB(255, 0, 0), RGB(255, 255, 255), LWA_COLORKEY);
-	//MARGINS Margin = { -1, -1, -1, -1 };
-	//DwmExtendFrameIntoClientArea(hwnd, &Margin);
+	HWND hwnd = ::CreateWindowEx(WS_EX_TOPMOST | WS_EX_LAYERED, L"testing", L"a", WS_POPUP, 0, 0, 2560, 1440, NULL, NULL, wc.hInstance, NULL);
+	SetLayeredWindowAttributes(hwnd, RGB(255, 0, 0), 255, LWA_ALPHA);
+
+	SetLayeredWindowAttributes(hwnd, RGB(0, 0, 0), 0, ULW_COLORKEY);
 
 
 
@@ -313,12 +322,12 @@ int main(int, char**)
 		return 1;
 	}
 
-	//begin transparency
 
 
 	//// Show the window
 	ShowWindow(hwnd, SW_SHOWDEFAULT);
 	UpdateWindow(hwnd);
+	
 
 
 	// Setup Dear ImGui context
@@ -345,6 +354,19 @@ int main(int, char**)
 	bool done = false;
 	while (!done)
 	{
+		static bool menuenable = true;
+		if (GetAsyncKeyState(VK_F2) & 1) {
+			if (menuenable) {
+ShowWindow(hwnd, SW_MINIMIZE);
+			}
+			else
+			{
+			ShowWindow(hwnd, SW_SHOWDEFAULT);
+			//ImGui::SetNextWindowBgAlpha(10);
+			}
+			menuenable = !menuenable;
+		}
+
 
 		// Poll and handle messages (inputs, window resize, etc.)
 		// You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.
@@ -427,7 +449,22 @@ int main(int, char**)
 
 			ImGui::Begin("  wip", 0, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_AlwaysAutoResize);
 
-		
+			//if (menuenable)
+			//{
+			//	//for (int opacity = 0; opacity <= 255; opacity++)
+			//	//{
+			//	//	SetLayeredWindowAttributes(hwnd, RGB(255, 0, 0), opacity, LWA_ALPHA);
+			//	//	Sleep(20);
+			//	//}
+			//	for (float opacity = 0; opacity <= 1.0; opacity++)
+			//	{
+			//		SetLayeredWindowAttributes(hwnd, 0, opacity*255, NULL);
+
+
+			//	}
+			//	
+			//}
+
 			ImGui::Text("Enable or disable script.");               // Display some text (you can use a format strings too)
 			if (ImGui::Checkbox("Toggle on/off", &enabled))
 			{
@@ -443,72 +480,28 @@ int main(int, char**)
 				}
 			}
 
-
-			//this gets put in your while loop, the above does not
+			// weapon selector
 			ImGui::Text("weapon");
 			ImGui::Combo("   ", &CurrentWeaponSelection, WeaponSelectionOptions, 3);
-
-			//call your function
 			SetWeaponRecoil(CurrentWeaponSelection);
 
-			//first attempt at weapon selector
-			//ImGui::Text("weapon");
-			//const char* wep[] = { "none", "ak47", "lr300" };
-			//static int current_wep = 0;
-
-			//if (ImGui::BeginCombo("##wep", wep[current_wep])) // The second parameter is the label previewed before opening the combo.
-			//{
-			//	for (int n = 0; n < IM_ARRAYSIZE(wep); n++)
-			//	{
-			//		bool is_selected = (current_wep == n); // You can store your selection however you want, outside or inside your objects
-			//		if (ImGui::Selectable(wep[n], is_selected))
-			//			current_wep = n;
-			//			if (is_selected)
-			//				ImGui::SetItemDefaultFocus();   // You may set the initial focus when opening the combo (scrolling + for keyboard navigation support)
-			//	}
-			//ImGui::EndCombo();
-			//}
-
+			// scope selector
 			ImGui::Text("scope");
-			const char* scope[] = { "none", "simple", "holo", "8x", "16x" };
-			static int current_scope = 0;
+			ImGui::Combo("  ", &scope, ScopeSelectionOptions, 5);
+			getScope(scope);
 
-			if (ImGui::BeginCombo("##scope", scope[current_scope]))
-			{
-				for (int n = 0; n < IM_ARRAYSIZE(scope); n++)
-				{
-					bool is_selected = (current_scope == n);
-					if (ImGui::Selectable(scope[n], is_selected))
-						current_scope = n;
-					if (is_selected)
-						ImGui::SetItemDefaultFocus();
-				}
-				ImGui::EndCombo();
-			}
-
+			// barrel selector
 			ImGui::Text("barrel");
-			const char* barrel[] = { "none", "muzzle break", "suppressor", "WIP" };
-			static int current_barrel = 0;
-
-			if (ImGui::BeginCombo("##barrel", barrel[current_barrel])) 
-			{
-				for (int n = 0; n < IM_ARRAYSIZE(barrel); n++)
-				{
-					bool is_selected = (current_barrel == n); 
-					if (ImGui::Selectable(barrel[n], is_selected))
-						current_barrel = n;
-					if (is_selected)
-						ImGui::SetItemDefaultFocus();   
-				}
-				ImGui::EndCombo();
-			}
+			ImGui::Combo("    ", &barrel, BarrelSelectionOptions, 4);
+			getBarrel(barrel);
+			
 
 
-			//sens selector
+			// sens selector
 			ImGui::Text("sens");
 			ImGui::SliderFloat("     ", &playersens, 0.0, 10.0, "%.1f", 1);
 
-			//randomization
+			// randomization selector
 			ImGui::Text("randomization");
 			ImGui::SliderInt(" ", &randomizer, 0, 100, "%i%%", 1);
 

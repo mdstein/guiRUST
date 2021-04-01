@@ -2,29 +2,30 @@
 C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Weapons.h(15,28): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(49,1): warning C4005: 'FG_WHITE': macro redefinition
 C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(47): message : see previous definition of 'FG_WHITE'
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(188,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(189,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(218,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(221,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(224,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(227,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(230,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(238,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(241,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(244,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(247,17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(252,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(273,15): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(275,148): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(275,242): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(280,15): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(282,132): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(282,226): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(436,14): warning C4553: '==': result of expression not used; did you intend '='?
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(437,11): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(441,11): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(518,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(519,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(520,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
-C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(248): warning C4715: 'getBarrel': not all control paths return a value
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(195,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(196,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(225,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(228,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(231,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(234,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(237,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(245,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(248,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(251,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(254,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(260,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(282,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(284,148): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(284,242): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(289,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(291,132): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(291,226): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(473,14): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(474,11): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(478,11): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(491,13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(496,14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(511,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(512,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
+C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\norecoil\Source.cpp(513,10): warning C4244: 'argument': conversion from 'double' to 'DWORD', possible loss of data
   norecoil.vcxproj -> C:\Users\Max\OneDrive\Desktop\Vera scripts\rustgui\Debug\norecoil.exe
